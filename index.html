@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portafolio de Mauricio Simonin Vazquez</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0d0d0d;
+            color: white;
+        }
+
+        /* NAVBAR */
+        header {
+            background: #111;
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #222;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: #ddd;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 16px;
+            transition: 0.2s;
+        }
+
+        nav a:hover {
+            color: #4da3ff;
+        }
+
+        /* CONTENIDO PRINCIPAL */
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #ccc;
+            margin-bottom: 40px;
+        }
+
+        /* BOTONES DE PREVIEW */
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: #111;
+            padding: 20px;
+            width: 250px;
+            border-radius: 10px;
+            border: 1px solid #222;
+            text-align: center;
+            transition: 0.2s;
+        }
+
+        .card:hover {
+            border-color: #4da3ff;
+            transform: translateY(-4px);
+        }
+
+        .card h2 {
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            background: #4da3ff;
+            padding: 10px 15px;
+            border-radius: 6px;
+            color: white;
+            display: inline-block;
+            margin-top: 10px;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .btn:hover {
+            background: #1c6ec4;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <div class="logo">Portafolio de Mauricio</div>
+
+        <nav>
+            <a href="#">Inicio</a>
+            <a href="trabajos.html">Trabajos escolares</a>
+            <a href="proyectos.html">Proyectos</a>
+            <a href="imagenes.html">Imágenes</a>
+        </nav>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <div class="container">
+        <h1>Bienvenido a mi portafolio</h1>
+        <p>Aquí encontrarás mis trabajos, proyectos e imágenes para la clase de Introducción a las Ciencias de la Computación.</p>
+
+        <div class="cards">
+
+            <div class="card">
+                <h2>Trabajos escolares</h2>
+                <p>Descripción y previsualización de tareas y actividades.</p>
+                <a class="btn" href="trabajos.html">Ver trabajos</a>
+            </div>
+
+            <div class="card">
+                <h2>Proyectos</h2>
+                <p>Proyectos creados durante el curso.</p>
+                <a class="btn" href="proyectos.html">Ver proyectos</a>
+            </div>
+
+            <div class="card">
+                <h2>Imágenes</h2>
+                <p>Galería de imágenes del curso.</p>
+                <a class="btn" href="imagenes.html">Ver imágenes</a>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
