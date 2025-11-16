@@ -105,17 +105,45 @@
 
     <div class="container">
         <h1>Galería de imágenes</h1>
-        <p>Aquí aparecerán las imágenes que subas más adelante.</p>
+        <p>Las imágenes que subas a la carpeta <b>imagenes/</b> aparecerán aquí automáticamente.</p>
 
-        <div class="galeria">
-            <!-- EJEMPLO DE IMAGEN -->
-            <div class="img-box">
-                <img src="https://via.placeholder.com/250" alt="Imagen de ejemplo">
-                <a class="btn" href="#" target="_blank">Ver imagen</a>
-            </div>
-        </div>
-
+        <div class="galeria" id="galeria"></div>
     </div>
+
+    <script>
+        // Lista de imágenes detectadas automáticamente
+        const imagenes = [];
+
+        // Intentamos cargar hasta 50 imágenes como imagen1.jpg, imagen2.png, etc.
+        for (let i = 1; i <= 50; i++) {
+            const formatos = ["jpg", "png", "jpeg", "gif", "webp"];
+
+            formatos.forEach(ext => {
+                const ruta = `imagenes/imagen${i}.${ext}`;
+                const img = new Image();
+                img.src = ruta;
+
+                img.onload = () => {
+                    imagenes.push(ruta);
+                    mostrarImagenes();
+                };
+            });
+        }
+
+        function mostrarImagenes() {
+            const contenedor = document.getElementById("galeria");
+            contenedor.innerHTML = "";
+
+            imagenes.forEach(ruta => {
+                contenedor.innerHTML += `
+                <div class="img-box">
+                    <img src="${ruta}" alt="Imagen">
+                    <a class="btn" href="${ruta}" target="_blank">Ver imagen</a>
+                </div>
+                `;
+            });
+        }
+    </script>
 
 </body>
 </html>
