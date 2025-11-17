@@ -11,7 +11,6 @@ const galeria = document.getElementById("galeria");
 fetch(carpeta)
     .then(response => response.text())
     .then(texto => {
-        // Extraer nombres de archivos dentro del listado
         let parser = new DOMParser();
         let doc = parser.parseFromString(texto, "text/html");
 
@@ -20,7 +19,6 @@ fetch(carpeta)
         links.forEach(link => {
             let archivo = link.getAttribute("href");
 
-            // Verificar si es una imagen
             if (extensiones.some(ext => archivo.endsWith(ext))) {
 
                 let ruta = carpeta + archivo;
