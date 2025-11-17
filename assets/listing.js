@@ -1,12 +1,15 @@
-// Cargar el JSON con la lista de imágenes
-fetch("assets/img.json")
-    .then(res => res.json())
-    .then(data => {
-        const galeria = document.getElementById("galeria");
-        const carpeta = "imagenes/";
+// URL del archivo JSON en GitHub Pages
+const url = "https://mauriciosv109.github.io/assets/img.json";
 
+// Contenedor donde van las imágenes
+const galeria = document.getElementById("galeria");
+
+// Cargar el JSON
+fetch(url)
+    .then(response => response.json())
+    .then(data => {
         data.imagenes.forEach(nombre => {
-            let ruta = carpeta + nombre;
+            let ruta = "imagenes/" + nombre;
 
             let box = `
                 <div class="img-box">
@@ -18,6 +21,4 @@ fetch("assets/img.json")
             galeria.innerHTML += box;
         });
     })
-    .catch(err => console.log("Error cargando img.json:", err));
-
-
+    .catch(error => console.error("Error cargando JSON:", error));
