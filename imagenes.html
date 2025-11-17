@@ -22,11 +22,6 @@
             border-bottom: 1px solid #222;
         }
 
-        .logo {
-            font-size: 20px;
-            font-weight: bold;
-        }
-
         nav a {
             color: #ddd;
             text-decoration: none;
@@ -40,10 +35,13 @@
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1100px;
             margin: 40px auto;
             padding: 20px;
         }
+
+        h1 { margin-bottom: 10px; }
+        p { color: #ccc; margin-bottom: 30px; }
 
         .galeria {
             display: grid;
@@ -63,6 +61,21 @@
             width: 100%;
             border-radius: 8px;
         }
+
+        .btn {
+            background: #4da3ff;
+            padding: 8px 12px;
+            border-radius: 6px;
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+            transition: 0.2s;
+        }
+
+        .btn:hover {
+            background: #1c6ec4;
+        }
     </style>
 </head>
 
@@ -81,37 +94,30 @@
 
 <div class="container">
     <h1>Galería de imágenes</h1>
-    <p>Las imágenes que subas a la carpeta <strong>imagenes/</strong> aparecerán aquí automáticamente.</p>
+    <p>Las imágenes que subas a la carpeta <b>imagenes/</b> aparecerán aquí automáticamente.</p>
 
     <div class="galeria" id="galeria"></div>
 </div>
 
 <script>
-    async function cargarImagenes() {
-        const respuesta = await fetch("https://api.github.com/repos/MauricioSV109/MauricioSV109.github.io/contents/imagenes");
-        const archivos = await respuesta.json();
-        
-        const galeria = document.getElementById("galeria");
+    const carpeta = "imagenes/";
+    const archivos = ["images.png"]; // ← PON AQUÍ LOS NOMBRES DE TUS IMÁGENES
 
-        archivos.forEach(archivo => {
-            if (archivo.name.match(/\.(jpg|jpeg|png|gif|webp)$/i)) {
-                const div = document.createElement("div");
-                div.className = "img-box";
+    const galeria = document.getElementById("galeria");
 
-                div.innerHTML = `
-                    <img src="${archivo.download_url}" alt="${archivo.name}">
-                `;
+    archivos.forEach(nombre => {
+        let ruta = carpeta + nombre;
 
-                galeria.appendChild(div);
-            }
-        });
-    }
+        let box = `
+            <div class="img-box">
+                <img src="${ruta}" alt="${nombre}">
+                <a class="btn" href="${ruta}" target="_blank">Ver imagen</a>
+            </div>
+        `;
 
-    cargarImagenes();
+        galeria.innerHTML += box;
+    });
 </script>
-
-</body>
-</html>
 
 </body>
 </html>
