@@ -74,7 +74,7 @@
         }
 
         .btn:hover {
-            background: #1c6ec4;
+            background-color: #1c6ec4;
         }
     </style>
 </head>
@@ -99,25 +99,8 @@
     <div class="galeria" id="galeria"></div>
 </div>
 
-<script>
-    const carpeta = "imagenes/";
-    const archivos = ["images.png"]; // ← PON AQUÍ LOS NOMBRES DE TUS IMÁGENES
-
-    const galeria = document.getElementById("galeria");
-
-    archivos.forEach(nombre => {
-        let ruta = carpeta + nombre;
-
-        let box = `
-            <div class="img-box">
-                <img src="${ruta}" alt="${nombre}">
-                <a class="btn" href="${ruta}" target="_blank">Ver imagen</a>
-            </div>
-        `;
-
-        galeria.innerHTML += box;
-    });
-</script>
+<!-- Cargar el JS que está en assets/ -->
+<script src="assets/listado.js"></script>
 
 </body>
 </html>
