@@ -1,11 +1,11 @@
-// URL del archivo JSON en GitHub Pages
-const url = "https://mauriciosv109.github.io/assets/img.json";
+// Ruta del JSON que contiene la lista de imágenes
+const rutaJSON = "assets/img.json";
 
-// Contenedor donde van las imágenes
+// Contenedor donde aparecerán las imágenes
 const galeria = document.getElementById("galeria");
 
-// Cargar el JSON
-fetch(url)
+// Leer el JSON desde GitHub Pages
+fetch(rutaJSON)
     .then(response => response.json())
     .then(data => {
         data.imagenes.forEach(nombre => {
@@ -21,4 +21,6 @@ fetch(url)
             galeria.innerHTML += box;
         });
     })
-    .catch(error => console.error("Error cargando JSON:", error));
+    .catch(error => {
+        console.error("Error cargando img.json:", error);
+    });
