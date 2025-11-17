@@ -136,10 +136,13 @@
 
             imagenes.forEach(ruta => {
                 contenedor.innerHTML += `
-                <div class="img-box">
-                    <img src="${ruta}" alt="Imagen">
-                    <a class="btn" href="${ruta}" target="_blank">Ver imagen</a>
-                </div>
+                <div class="galeria">
+    <div class="img-box">
+        <img src="imagenes/images.png" alt="Imagen subida">
+        <a class="btn" href="imagenes/images.png" target="_blank">Ver imagen</a>
+    </div>
+</div>
+
                 `;
             });
         }
