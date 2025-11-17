@@ -1,29 +1,25 @@
+// Carpeta donde están tus imágenes (desde imagenes.html)
+const carpeta = "imagenes/";
 
-function previewFile(event) {
-    const file = event.target.files[0];
-    const previewBox = document.getElementById("previewBox");
+// Lista de imágenes que quieres mostrar (NOMBRES EXACTOS)
+const imagenes = [
+    "images.png",
+    "foto2.png",
+    "loquesea.jpg"
+];
 
-    if (!file) {
-        previewBox.style.display = "none";
-        previewBox.innerHTML = "";
-        return;
-    }
+// Selecciona el contenedor donde van las imágenes
+const contenedor = document.getElementById("contenedor-imagenes");
 
-    previewBox.style.display = "block";
+// Recorre la lista y las pone en pantalla
+imagenes.forEach(nombre => {
+    const ruta = carpeta + nombre;
 
-   
-    if (file.type.startsWith("image/")) {
-        const img = document.createElement("img");
-        img.src = URL.createObjectURL(file);
-        img.style.maxWidth = "80%";
-        img.style.marginTop = "20px";
-        previewBox.innerHTML = "";
-        previewBox.appendChild(img);
-    } else {
-       
-        previewBox.innerHTML = `
-            <p>Archivo seleccionado:</p>
-            <strong>${file.name}</strong>
-        `;
-    }
-}
+    const img = document.createElement("img");
+    img.src = ruta;
+    img.alt = nombre;
+    img.style.width = "200px";
+    img.style.margin = "10px";
+
+    contenedor.appendChild(img);
+});
